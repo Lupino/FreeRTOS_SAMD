@@ -9,4 +9,5 @@
 #include "kernel/queue.h"
 #include "kernel/semphr.h"
 #include "kernel/portmacro.h"
+#include "helper.h"
 #endif  // FreeRTOS_ARM_h
