@@ -9,8 +9,8 @@
 #define HELPER_H_
 
 #include <Arduino.h>
-#include <kernel/FreeRTOS.h>
-#include <kernel/task.h>
+#include "FreeRTOS.h"
+#include "task.h"
 #include <delay.h>
 
 #define portTICK_PERIOD_US			( ( TickType_t ) 1000000 / configTICK_RATE_HZ )
