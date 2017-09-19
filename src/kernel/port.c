@@ -200,8 +200,17 @@ void vPortStartFirstTask( void )
 /*
  * See header file for description.
  */
+void (*rtosSysTick_Handler)(void);
+
+int sysTickHook(void) {
+	if (rtosSysTick_Handler)
+		rtosSysTick_Handler();
+	return 0; // return zero to keep running the arduino default handler!
+}
+
 BaseType_t xPortStartScheduler( void )
 {
+	rtosSysTick_Handler = &xPortSysTickHandler;
 	/* Make PendSV, CallSV and SysTick the same priroity as the kernel. */
 	*(portNVIC_SYSPRI2) |= portNVIC_PENDSV_PRI;
 	*(portNVIC_SYSPRI2) |= portNVIC_SYSTICK_PRI;
