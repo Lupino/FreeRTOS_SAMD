@@ -51,7 +51,7 @@ SystemClock_t updateSysClock(void) {
 	long tickspan = timespan(_lastTickCount, xTaskGetTickCount());
 	_lastTickCount += tickspan;
 
-	tickspan *= portTICK_PERIOD_US; // µs
+	tickspan *= portTICK_PERIOD_US;
 	tickspan += sysClock.micro;
 	sysClock.micro = tickspan % 1000000;
 
